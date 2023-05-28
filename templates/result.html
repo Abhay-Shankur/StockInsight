@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stock Analysis Result</title>
+</head>
+<body>
+    <h1>Stock Analysis Result</h1>
+    <p>Mean Daily Return: {{ mean_return }}</p>
+    <p>Standard Deviation of Daily Return: {{ std_return }}</p>
+    <p>Predicted Stock Price: {{ predicted_price }}</p>
+    <img src="{{ url_for('pic', filename='plot.png') }}" alt="Daily Returns Plot">
+</body>
+</html>
