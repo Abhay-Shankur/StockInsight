@@ -32,6 +32,8 @@
           } 
           .container {
             max-width: 50%;
+            align-self: auto;
+            margin: 20px auto;
           }
           .min-container {
             min-width: 300px;
@@ -70,6 +72,17 @@
           .sub-section {
             width: 25%;
             margin: 20px;
+            padding: 25px;
+            align-self: auto;
+          }
+          .sub-section-item {
+            display: flex;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+            border-radius: 12px;
+            margin: 20px auto;
+            padding: 10px;
+            flex-wrap: nowrap;
+            flex-direction: column;
           }
           .section {
             width: 100%;
@@ -84,16 +97,6 @@
           h1 {
             text-align: center;
           }
-
-          /* .form-control {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-          } */
-
           .submit-btn {
             width: 100%;
             padding: 10px;
@@ -150,10 +153,16 @@
         </div>
         <div class="section">
           <div class="sub-section">
-            <h1>Top Gainers</h1>
+            <h1  style="color: seagreen;">Top Gainers <i class="fa-solid fa-caret-up"></i></h1>
             <hr>
             {% for index,stock in listgainers.iterrows() %}  
-            <h5>{{stock['symbol']}}</h5>
+            <div class="sub-section-item" title="{{stock['symbol']}}">
+              <div><b>Company Name :</b> {{stock['meta']['companyName']}}</div>
+              <div><b>Industry :</b> {{stock['meta']['industry']}}</div>
+              <!-- <div>{{stock['symbol']}}</div> -->
+              <div><b>Current Price :</b> {{stock['lastPrice']}}</div>
+              <div style="color: seagreen;"><b>Change :</b> {{stock['change']}} ({{stock['pChange']}}%) <i class="fa-solid fa-caret-up"></i></div>
+            </div>
             {% endfor %}
           </div>
 
@@ -188,10 +197,16 @@
           </div> <!-- Container Closing -->
 
           <div class="sub-section">
-            <h1>Top Losers</h1>
+            <h1  style="color: crimson;">Top Losers <i class="fa-solid fa-caret-down"></i></h1>
             <hr>
             {% for index,stock in listlosers.iterrows() %}  
-            <h5>{{stock['symbol']}}</h5>
+            <div class="sub-section-item" title="{{stock['symbol']}}">
+              <div><b>Company Name :</b> {{stock['meta']['companyName']}}</div>
+              <div><b>Industry :</b> {{stock['meta']['industry']}}</div>
+              <!-- <div>{{stock['symbol']}}</div> -->
+              <div><b>Current Price :</b> {{stock['lastPrice']}}</div>
+              <div style="color: crimson;"><b>Change :</b> {{stock['change']}} ({{stock['pChange']}}%) <i class="fa-solid fa-caret-down"></i></div>
+            </div>
             {% endfor %}
           </div>
 
