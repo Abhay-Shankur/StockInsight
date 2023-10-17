@@ -1,7 +1,6 @@
-import yfinance as yf
 import nsepython as nsp
-from flask import Flask, render_template, request, redirect, flash, jsonify
-import model
+from flask import Flask, render_template, request, jsonify
+from app import model
 
 app = Flask(__name__)
 # app.secret_key = "your_secret_key"
