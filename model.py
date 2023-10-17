@@ -33,7 +33,7 @@ class PredictModel :
             y = data[self.target]
             self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-            # Create and train the model
+            # Create and train the model XGBoost Regressor
             self.model = RandomForestRegressor(n_estimators=100)  # You can customize the model as per your requirements
             self.model.fit(self.X_train, self.y_train)
 
